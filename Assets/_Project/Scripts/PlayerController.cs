@@ -52,6 +52,6 @@ public class PlayerController : MonoBehaviour
             Vector3 pos = _playerVisual.localPosition;
         }
     }
-
+    
     #endregion
 }

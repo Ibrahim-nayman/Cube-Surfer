@@ -8,6 +8,7 @@ TagManager:
   - DeathArea
   - ObstacleBox
   - MainBox
+  - FinishLine
   layers:
   - Default
   - TransparentFX
