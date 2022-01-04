@@ -18,8 +18,8 @@ TagManager:
   - UI
   - PlayerVisual
   - CollectableCube
-  - 
-  - 
+  - CubeSpawner
+  - MainBox
   - 
   - 
   - 

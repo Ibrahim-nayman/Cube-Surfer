@@ -18,6 +18,7 @@ public class CubeSpawner : MonoBehaviour
             pos.y += 1;
             Upper.localPosition = pos;
             var spawnedCube = Instantiate(Cube, CubeSpawnerObject.position, Quaternion.identity);
+            spawnedCube.layer = 7;
             spawnedCube.transform.SetParent(Upper);
         }
     }

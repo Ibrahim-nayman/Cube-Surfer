@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _maxSlideAmount;
     [SerializeField] private float _slideSmoothness;
     [SerializeField] private Transform _playerVisual;
-    [SerializeField] private GameObject tapToStartScren;
+    [SerializeField] private GameObject tapToStartScreen;
 
     private Rigidbody _rigidbody;
 
@@ -20,9 +20,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        ForwardMovement();
-        SwerveMovement();
-        
         #region GameState
 
         switch (GameManager.Instance.CurrentGameState)
@@ -31,8 +28,9 @@ public class PlayerController : MonoBehaviour
                 Starting();
                 break;
             case GameManager.GameState.MainGame:
-                _runSpeed = 15;
-                tapToStartScren.SetActive(false);
+                ForwardMovement();
+                SwerveMovement();
+                tapToStartScreen.SetActive(false);
                 break;
             case GameManager.GameState.LoseGame:
                 break;
