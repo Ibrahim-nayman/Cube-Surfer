@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private int _runSpeed;
+    [SerializeField] private int _runSpeed = 0;
     [SerializeField] private float _slideSpeed;
     [SerializeField] private float _maxSlideAmount;
     [SerializeField] private float _slideSmoothness;
@@ -22,15 +22,16 @@ public class PlayerController : MonoBehaviour
     {
         ForwardMovement();
         SwerveMovement();
+        
+        #region GameState
 
         switch (GameManager.Instance.CurrentGameState)
         {
             case GameManager.GameState.StartGame:
                 Starting();
-                _rigidbody.constraints = RigidbodyConstraints.FreezeAll;
                 break;
             case GameManager.GameState.MainGame:
-                _rigidbody.constraints = RigidbodyConstraints.None;
+                _runSpeed = 15;
                 tapToStartScren.SetActive(false);
                 break;
             case GameManager.GameState.LoseGame:
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour
             default:
                 break;
         }
+        #endregion
     }
     private void Starting()
     {
@@ -48,7 +50,7 @@ public class PlayerController : MonoBehaviour
             GameManager.Instance.CurrentGameState = GameManager.GameState.MainGame;
         }
     }
-
+    
     #region PlayerMovement
 
     private void ForwardMovement()
