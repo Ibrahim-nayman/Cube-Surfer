@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _maxSlideAmount;
     [SerializeField] private float _slideSmoothness;
     [SerializeField] private Transform _playerVisual;
-
+    [SerializeField] private GameObject tapToStartScren;
 
     private Rigidbody _rigidbody;
 
@@ -21,6 +22,31 @@ public class PlayerController : MonoBehaviour
     {
         ForwardMovement();
         SwerveMovement();
+
+        switch (GameManager.Instance.CurrentGameState)
+        {
+            case GameManager.GameState.StartGame:
+                Starting();
+                _rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+                break;
+            case GameManager.GameState.MainGame:
+                _rigidbody.constraints = RigidbodyConstraints.None;
+                tapToStartScren.SetActive(false);
+                break;
+            case GameManager.GameState.LoseGame:
+                break;
+            case GameManager.GameState.WinGame:
+                break;
+            default:
+                break;
+        }
+    }
+    private void Starting()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            GameManager.Instance.CurrentGameState = GameManager.GameState.MainGame;
+        }
     }
 
     #region PlayerMovement

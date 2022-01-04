@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2027020531055481813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -3.25}
+  m_LocalPosition: {x: 0, y: 0, z: -3.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 49204332748370478}
@@ -130,6 +130,7 @@ MonoBehaviour:
   _maxSlideAmount: 7
   _slideSmoothness: 7
   _playerVisual: {fileID: 5593707974076734497}
+  tapToStartScren: {fileID: 0}
 --- !u!54 &5593707974222718030
 Rigidbody:
   m_ObjectHideFlags: 0
