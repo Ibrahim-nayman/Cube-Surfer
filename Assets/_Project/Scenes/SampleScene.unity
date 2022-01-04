@@ -1042,6 +1042,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -3.3
       objectReference: {fileID: 0}
+    - target: {fileID: 5128769779853374975, guid: f357b714ec6e513439fc940f6d34cac0, type: 3}
+      propertyPath: m_TagString
+      value: MainBox
+      objectReference: {fileID: 0}
     - target: {fileID: 5483207903777624674, guid: f357b714ec6e513439fc940f6d34cac0, type: 3}
       propertyPath: Cube
       value: 

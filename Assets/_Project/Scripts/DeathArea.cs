@@ -1,8 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Security.Cryptography;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class DeathArea : MonoBehaviour
@@ -14,6 +13,10 @@ public class DeathArea : MonoBehaviour
             Destroy(other.gameObject,0.10f);
         }
         
+        if (other.CompareTag("MainBox"))
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
     }
 }
 

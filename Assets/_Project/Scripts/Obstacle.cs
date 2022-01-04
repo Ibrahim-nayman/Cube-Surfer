@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Obstacle : MonoBehaviour
 {
@@ -8,7 +9,12 @@ public class Obstacle : MonoBehaviour
     {
         if (other.CompareTag("CollectableCube"))
         {
-            Destroy(other.gameObject, 0.10f);
+            Destroy(other.gameObject, 0.15f);
+        }
+
+        if (other.CompareTag("MainBox"))
+        {
+            SceneManager.LoadScene("SampleScene");
         }
     }
 }
