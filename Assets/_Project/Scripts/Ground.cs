@@ -11,7 +11,7 @@ public class Ground : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             print("a");
-            //SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("SampleScene");
         }
     }
 }
