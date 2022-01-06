@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,7 +17,8 @@ public class GameManager : MonoBehaviour
 
     private static GameManager _instance;
     private GameState _currentGameState;
-    
+    public GameObject Player;
+
     public static GameManager Instance => _instance;
     public TextMeshProUGUI tapToStart;
 
@@ -53,6 +55,7 @@ public class GameManager : MonoBehaviour
         {
             _instance = this;
         }
+
         _currentGameState = GameState.StartGame;
     }
 
@@ -73,6 +76,3 @@ public class GameManager : MonoBehaviour
         }
     }
 }
-
-    
-

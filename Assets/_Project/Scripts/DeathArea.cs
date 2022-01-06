@@ -10,9 +10,9 @@ public class DeathArea : MonoBehaviour
     {
         if (other.CompareTag("CollectableCube"))
         {
-            Destroy(other.gameObject,0.05f);
+            Destroy(other.gameObject, 0.05f);
         }
-        
+
         if (other.CompareTag("MainBox"))
         {
             SceneManager.LoadScene("SampleScene");

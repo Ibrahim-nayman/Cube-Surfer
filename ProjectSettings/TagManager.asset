@@ -9,6 +9,8 @@ TagManager:
   - ObstacleBox
   - MainBox
   - FinishLine
+  - Ground
+  - MainPlayer
   layers:
   - Default
   - TransparentFX
@@ -20,8 +22,8 @@ TagManager:
   - CollectableCube
   - CubeSpawner
   - MainBox
-  - 
-  - 
+  - Player
+  - Ground
   - 
   - 
   - 

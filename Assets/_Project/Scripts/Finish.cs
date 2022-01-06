@@ -16,5 +16,9 @@ public class Finish : MonoBehaviour
         {
             SceneManager.LoadScene("SampleScene");
         }
+        else if (other.CompareTag("MainPlayer"))
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -11,6 +12,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _slideSmoothness;
     [SerializeField] private Transform _playerVisual;
     [SerializeField] private GameObject tapToStartScreen;
+    [SerializeField] private GameManager _gameManager;
+    [SerializeField] private GameObject loseGameScreen;
+
 
     private Rigidbody _rigidbody;
 
@@ -33,14 +37,18 @@ public class PlayerController : MonoBehaviour
                 tapToStartScreen.SetActive(false);
                 break;
             case GameManager.GameState.LoseGame:
+                tapToStartScreen.SetActive(false);
+                loseGameScreen.SetActive(true);
                 break;
             case GameManager.GameState.WinGame:
                 break;
             default:
                 break;
         }
+
         #endregion
     }
+
     private void Starting()
     {
         if (Input.GetMouseButtonDown(0))
@@ -48,7 +56,7 @@ public class PlayerController : MonoBehaviour
             GameManager.Instance.CurrentGameState = GameManager.GameState.MainGame;
         }
     }
-    
+
     #region PlayerMovement
 
     private void ForwardMovement()
@@ -78,6 +86,6 @@ public class PlayerController : MonoBehaviour
             Vector3 pos = _playerVisual.localPosition;
         }
     }
-    
+
     #endregion
 }

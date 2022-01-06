@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class Ground : MonoBehaviour
 {
-    public void OnCollisionEnter(Collision other)
+    public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            print("a");
             SceneManager.LoadScene("SampleScene");
+            //GameManager.Instance.CurrentGameState = GameManager.GameState.LoseGame;
         }
     }
 }
