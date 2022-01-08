@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _slideSmoothness;
     [SerializeField] private Transform _playerVisual;
     [SerializeField] private GameObject tapToStartScreen;
-    [SerializeField] private GameManager _gameManager;
     [SerializeField] private GameObject loseGameScreen;
 
 
@@ -56,6 +55,7 @@ public class PlayerController : MonoBehaviour
             GameManager.Instance.CurrentGameState = GameManager.GameState.MainGame;
         }
     }
+   
 
     #region PlayerMovement
 

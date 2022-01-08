@@ -10,15 +10,13 @@ public class Finish : MonoBehaviour
     {
         if (other.CompareTag("CollectableCube"))
         {
-            SceneManager.LoadScene("SampleScene");
+            //SceneManager.LoadScene("SampleScene");
+            GameManager.Instance.CurrentGameState = GameManager.GameState.StartGame;
         }
-        else if (other.CompareTag("MainBox"))
+        else if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene("SampleScene");
-        }
-        else if (other.CompareTag("MainPlayer"))
-        {
-            SceneManager.LoadScene("SampleScene");
+            //SceneManager.LoadScene("SampleScene");
+            GameManager.Instance.CurrentGameState = GameManager.GameState.StartGame;
         }
     }
 }

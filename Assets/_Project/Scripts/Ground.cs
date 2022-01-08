@@ -10,8 +10,7 @@ public class Ground : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene("SampleScene");
-            //GameManager.Instance.CurrentGameState = GameManager.GameState.LoseGame;
+            GameManager.Instance.CurrentGameState = GameManager.GameState.LoseGame;
         }
     }
 }
