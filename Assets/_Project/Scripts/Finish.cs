@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Finish : MonoBehaviour
 {
@@ -10,13 +9,11 @@ public class Finish : MonoBehaviour
     {
         if (other.CompareTag("CollectableCube"))
         {
-            //SceneManager.LoadScene("SampleScene");
-            GameManager.Instance.CurrentGameState = GameManager.GameState.StartGame;
+            GameManager.Instance.CurrentGameState = GameManager.GameState.WinGame;
         }
         else if (other.CompareTag("Player"))
         {
-            //SceneManager.LoadScene("SampleScene");
-            GameManager.Instance.CurrentGameState = GameManager.GameState.StartGame;
+            GameManager.Instance.CurrentGameState = GameManager.GameState.WinGame;
         }
     }
 }

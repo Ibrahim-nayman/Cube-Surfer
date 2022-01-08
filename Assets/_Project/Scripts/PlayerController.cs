@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -11,8 +10,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _maxSlideAmount;
     [SerializeField] private float _slideSmoothness;
     [SerializeField] private Transform _playerVisual;
-    [SerializeField] private GameObject tapToStartScreen;
-    [SerializeField] private GameObject loseGameScreen;
+    [SerializeField] private GameObject _tapToStartScreen;
+    [SerializeField] private GameObject _loseGameScreen;
+    [SerializeField] private GameObject _winRestartScreen;
+    
 
 
     private Rigidbody _rigidbody;
@@ -33,13 +34,13 @@ public class PlayerController : MonoBehaviour
             case GameManager.GameState.MainGame:
                 ForwardMovement();
                 SwerveMovement();
-                tapToStartScreen.SetActive(false);
+                _tapToStartScreen.SetActive(false);
                 break;
             case GameManager.GameState.LoseGame:
-                tapToStartScreen.SetActive(false);
-                loseGameScreen.SetActive(true);
+                _loseGameScreen.SetActive(true);
                 break;
             case GameManager.GameState.WinGame:
+                _winRestartScreen.SetActive(true);
                 break;
             default:
                 break;
