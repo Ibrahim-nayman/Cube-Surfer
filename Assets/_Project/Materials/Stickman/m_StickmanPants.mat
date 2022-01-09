@@ -8,9 +8,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: m_StickmanPants
-  m_Shader: {fileID: 4800000, guid: 6ee274c501732384d9c8bb02a4576937, type: 3}
+  m_Shader: {fileID: 4800000, guid: 881c73b45dda42d4ba29f8c7742329be, type: 3}
   m_ShaderKeywords: _MK_LIGHTMODEL_LAMBERT _MK_LIGHTTYPE_CEL_SHADE_SIMPLE _MK_RIM
-    _USEOUTLINE_ON
+    _USERIM_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -153,7 +153,7 @@ Material:
     - _UseAnisotropicSpecular: 0
     - _UseBumpMap: 0
     - _UseDissolve: 0
-    - _UseOutline: 1
+    - _UseOutline: 0
     - _UseReflection: 0
     - _UseRim: 1
     - _UseSketch: 0
