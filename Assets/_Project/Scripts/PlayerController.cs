@@ -29,7 +29,6 @@ public class PlayerController : MonoBehaviour
         switch (GameManager.Instance.CurrentGameState)
         {
             case GameManager.GameState.StartGame:
-                Starting();
                 _mainAudio.SetActive(true);
                 break;
             case GameManager.GameState.MainGame:
@@ -59,15 +58,6 @@ public class PlayerController : MonoBehaviour
 
         #endregion
     }
-
-    private void Starting()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            GameManager.Instance.CurrentGameState = GameManager.GameState.MainGame;
-        }
-    }
-
     private IEnumerator WinScreen()
     {
         yield return new WaitForSeconds(2);
