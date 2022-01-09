@@ -10,5 +10,9 @@ public class Obstacle : MonoBehaviour
         {
             Destroy(other.gameObject, 0.15f);
         }
+        if (other.CompareTag("MainBox"))
+        {
+            Destroy(other.gameObject, 0.05f);
+        }
     }
 }

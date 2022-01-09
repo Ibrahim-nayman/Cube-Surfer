@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -13,6 +14,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _tapToStartScreen;
     [SerializeField] private GameObject _loseGameScreen;
     [SerializeField] private GameObject _winRestartScreen;
+    [SerializeField] private Animator _animator;
+    [SerializeField] private GameObject loseAudio;
+    [SerializeField] private GameObject winAudio;
+    [SerializeField] private GameObject mainAudio;
+    
     
 
 
@@ -30,17 +36,28 @@ public class PlayerController : MonoBehaviour
         {
             case GameManager.GameState.StartGame:
                 Starting();
+                mainAudio.SetActive(true);
                 break;
             case GameManager.GameState.MainGame:
+                _animator.SetBool("Crouch",true);
                 ForwardMovement();
                 SwerveMovement();
                 _tapToStartScreen.SetActive(false);
+                mainAudio.SetActive(true);
                 break;
             case GameManager.GameState.LoseGame:
-                _loseGameScreen.SetActive(true);
+                _animator.SetBool("Death", true);
+                _animator.SetBool("Crouch",false);
+                StartCoroutine(loseScreen());
+                loseAudio.SetActive(true);
+                mainAudio.SetActive(false);
                 break;
             case GameManager.GameState.WinGame:
-                _winRestartScreen.SetActive(true);
+                _animator.SetBool("Dance", true);
+                _animator.SetBool("Crouch",false);
+                StartCoroutine(winScreen());
+                winAudio.SetActive(true);
+                mainAudio.SetActive(false);
                 break;
             default:
                 break;
@@ -48,13 +65,23 @@ public class PlayerController : MonoBehaviour
 
         #endregion
     }
-
     private void Starting()
     {
         if (Input.GetMouseButtonDown(0))
         {
             GameManager.Instance.CurrentGameState = GameManager.GameState.MainGame;
         }
+    }
+
+    private IEnumerator winScreen()
+    {
+        yield return new WaitForSeconds(2);
+        _winRestartScreen.SetActive(true);
+    }
+    private IEnumerator loseScreen()
+    {
+        yield return new WaitForSeconds(0.5f);
+        _loseGameScreen.SetActive(true);
     }
    
 

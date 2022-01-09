@@ -11,5 +11,10 @@ public class DeathArea : MonoBehaviour
         {
             Destroy(other.gameObject, 0.05f);
         }
+        if (other.CompareTag("MainBox"))
+        {
+            Destroy(other.gameObject, 0.05f);
+        }
+        
     }
 }
