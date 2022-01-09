@@ -1,7 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -15,9 +12,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _loseGameScreen;
     [SerializeField] private GameObject _winRestartScreen;
     [SerializeField] private Animator _animator;
-    [SerializeField] private GameObject loseAudio;
-    [SerializeField] private GameObject winAudio;
-    [SerializeField] private GameObject mainAudio;
+    [SerializeField] private GameObject _loseAudio;
+    [SerializeField] private GameObject _winAudio;
+    [SerializeField] private GameObject _mainAudio;
 
     private Rigidbody _rigidbody;
 
@@ -33,28 +30,28 @@ public class PlayerController : MonoBehaviour
         {
             case GameManager.GameState.StartGame:
                 Starting();
-                mainAudio.SetActive(true);
+                _mainAudio.SetActive(true);
                 break;
             case GameManager.GameState.MainGame:
                 _animator.SetBool("Crouch", true);
                 ForwardMovement();
                 SwerveMovement();
                 _tapToStartScreen.SetActive(false);
-                mainAudio.SetActive(true);
+                _mainAudio.SetActive(true);
                 break;
             case GameManager.GameState.LoseGame:
                 _animator.SetBool("Death", true);
                 _animator.SetBool("Crouch", false);
-                StartCoroutine(loseScreen());
-                loseAudio.SetActive(true);
-                mainAudio.SetActive(false);
+                StartCoroutine(LoseScreen());
+                _loseAudio.SetActive(true);
+                _mainAudio.SetActive(false);
                 break;
             case GameManager.GameState.WinGame:
                 _animator.SetBool("Dance", true);
                 _animator.SetBool("Crouch", false);
-                StartCoroutine(winScreen());
-                winAudio.SetActive(true);
-                mainAudio.SetActive(false);
+                StartCoroutine(WinScreen());
+                _winAudio.SetActive(true);
+                _mainAudio.SetActive(false);
                 break;
             default:
                 break;
@@ -71,13 +68,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private IEnumerator winScreen()
+    private IEnumerator WinScreen()
     {
         yield return new WaitForSeconds(2);
         _winRestartScreen.SetActive(true);
     }
 
-    private IEnumerator loseScreen()
+    private IEnumerator LoseScreen()
     {
         yield return new WaitForSeconds(0.5f);
         _loseGameScreen.SetActive(true);

@@ -1,9 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,10 +12,7 @@ public class GameManager : MonoBehaviour
 
     private static GameManager _instance;
     private GameState _currentGameState;
-    public GameObject Player;
-
     public static GameManager Instance => _instance;
-    public TextMeshProUGUI tapToStart;
 
     public GameState CurrentGameState
     {
