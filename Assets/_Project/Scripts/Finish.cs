@@ -9,10 +9,13 @@ public class Finish : MonoBehaviour
     {
         if (other.CompareTag("CollectableCube"))
         {
+            //Destroy(other.gameObject,0.5f);
             GameManager.Instance.CurrentGameState = GameManager.GameState.WinGame;
         }
-        else if (other.CompareTag("Player"))
+
+        if (other.CompareTag("MainBox"))
         {
+            //Destroy(other.gameObject,1);
             GameManager.Instance.CurrentGameState = GameManager.GameState.WinGame;
         }
     }

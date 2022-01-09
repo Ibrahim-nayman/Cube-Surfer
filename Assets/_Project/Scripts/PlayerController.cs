@@ -18,9 +18,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject loseAudio;
     [SerializeField] private GameObject winAudio;
     [SerializeField] private GameObject mainAudio;
-    
-    
-
 
     private Rigidbody _rigidbody;
 
@@ -39,7 +36,7 @@ public class PlayerController : MonoBehaviour
                 mainAudio.SetActive(true);
                 break;
             case GameManager.GameState.MainGame:
-                _animator.SetBool("Crouch",true);
+                _animator.SetBool("Crouch", true);
                 ForwardMovement();
                 SwerveMovement();
                 _tapToStartScreen.SetActive(false);
@@ -47,14 +44,14 @@ public class PlayerController : MonoBehaviour
                 break;
             case GameManager.GameState.LoseGame:
                 _animator.SetBool("Death", true);
-                _animator.SetBool("Crouch",false);
+                _animator.SetBool("Crouch", false);
                 StartCoroutine(loseScreen());
                 loseAudio.SetActive(true);
                 mainAudio.SetActive(false);
                 break;
             case GameManager.GameState.WinGame:
                 _animator.SetBool("Dance", true);
-                _animator.SetBool("Crouch",false);
+                _animator.SetBool("Crouch", false);
                 StartCoroutine(winScreen());
                 winAudio.SetActive(true);
                 mainAudio.SetActive(false);
@@ -65,6 +62,7 @@ public class PlayerController : MonoBehaviour
 
         #endregion
     }
+
     private void Starting()
     {
         if (Input.GetMouseButtonDown(0))
@@ -78,12 +76,13 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(2);
         _winRestartScreen.SetActive(true);
     }
+
     private IEnumerator loseScreen()
     {
         yield return new WaitForSeconds(0.5f);
         _loseGameScreen.SetActive(true);
     }
-   
+
 
     #region PlayerMovement
 

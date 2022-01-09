@@ -8,11 +8,12 @@ public class Obstacle : MonoBehaviour
     {
         if (other.CompareTag("CollectableCube"))
         {
-            Destroy(other.gameObject, 0.15f);
+            Destroy(other.gameObject, 0.25f);
         }
+
         if (other.CompareTag("MainBox"))
         {
-            Destroy(other.gameObject, 0.05f);
+            Destroy(other.gameObject, 0.25f);
         }
     }
 }

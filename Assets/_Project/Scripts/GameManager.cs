@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -13,7 +12,7 @@ public class GameManager : MonoBehaviour
         StartGame,
         MainGame,
         LoseGame,
-        WinGame
+        WinGame,
     }
 
     private static GameManager _instance;
@@ -45,7 +44,7 @@ public class GameManager : MonoBehaviour
             _currentGameState = value;
         }
     }
-   
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -75,9 +74,5 @@ public class GameManager : MonoBehaviour
             default:
                 break;
         }
-    }
-    public void Retry()
-    {
-        SceneManager.LoadScene("SampleScene");
     }
 }
