@@ -8,10 +8,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _maxSlideAmount;
     [SerializeField] private float _slideSmoothness;
     [SerializeField] private Transform _playerVisual;
+
     [SerializeField] private GameObject _tapToStartScreen;
     [SerializeField] private GameObject _loseGameScreen;
     [SerializeField] private GameObject _winRestartScreen;
+    [SerializeField] private GameObject _mainStartScreen;
+
     [SerializeField] private Animator _animator;
+
     [SerializeField] private GameObject _loseAudio;
     [SerializeField] private GameObject _winAudio;
     [SerializeField] private GameObject _mainAudio;
@@ -44,6 +48,7 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(LoseScreen());
                 _loseAudio.SetActive(true);
                 _mainAudio.SetActive(false);
+                _mainStartScreen.SetActive(false);
                 break;
             case GameManager.GameState.WinGame:
                 _animator.SetBool("Dance", true);
@@ -51,6 +56,7 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(WinScreen());
                 _winAudio.SetActive(true);
                 _mainAudio.SetActive(false);
+                _mainStartScreen.SetActive(false);
                 break;
             default:
                 break;
@@ -58,6 +64,7 @@ public class PlayerController : MonoBehaviour
 
         #endregion
     }
+
     private IEnumerator WinScreen()
     {
         yield return new WaitForSeconds(2);

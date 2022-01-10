@@ -18,5 +18,11 @@ public class CubeSpawner : MonoBehaviour
             spawnedCube.layer = 7;
             spawnedCube.transform.SetParent(Upper);
         }
+
+        if (other.CompareTag("Diamond"))
+        {
+            Destroy(other.gameObject);
+            ScoreCounter.scoreValue += 1;
+        }
     }
 }

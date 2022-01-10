@@ -9,11 +9,13 @@ public class UIManager : MonoBehaviour
     public void Retry()
     {
         SceneManager.LoadScene("SampleScene");
+        ScoreCounter.scoreValue = 0;
     }
 
     public void NextGame()
     {
         SceneManager.LoadScene("SampleScene");
+        ScoreCounter.scoreValue = 0;
     }
 
     public void Settings()
@@ -25,10 +27,12 @@ public class UIManager : MonoBehaviour
     {
         _audio.SetActive(false);
     }
+
     public void SoundOn()
     {
         _audio.SetActive(true);
     }
+
     public void Starting()
     {
         GameManager.Instance.CurrentGameState = GameManager.GameState.MainGame;
