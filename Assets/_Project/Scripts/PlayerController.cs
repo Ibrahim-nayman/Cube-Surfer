@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator LoseScreen()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2);
         _loseGameScreen.SetActive(true);
     }
 
