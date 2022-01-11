@@ -5,6 +5,10 @@ public class CubeSpawner : MonoBehaviour
     public Transform Upper;
     public Transform CubeSpawnerObject;
     public GameObject Cube;
+    public Transform soundUpper;
+    public GameObject diamondSound;
+    
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,6 +27,8 @@ public class CubeSpawner : MonoBehaviour
         {
             Destroy(other.gameObject);
             ScoreCounter.scoreValue += 1;
+            var sound = Instantiate(diamondSound,CubeSpawnerObject.position,Quaternion.identity);
+            sound.transform.SetParent(soundUpper);
         }
     }
 }

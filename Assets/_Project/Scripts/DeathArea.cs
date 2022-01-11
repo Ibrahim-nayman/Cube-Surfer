@@ -6,12 +6,12 @@ public class DeathArea : MonoBehaviour
     {
         if (other.CompareTag("CollectableCube"))
         {
-            Destroy(other.gameObject, 0.25f);
+            Destroy(other.gameObject);
         }
 
         if (other.CompareTag("MainBox"))
         {
-            Destroy(other.gameObject, 0.25f);
+            Destroy(other.gameObject);
         }
     }
 }
