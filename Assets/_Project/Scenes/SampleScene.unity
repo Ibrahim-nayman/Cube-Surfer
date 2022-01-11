@@ -1555,6 +1555,7 @@ GameObject:
   - component: {fileID: 496443918}
   - component: {fileID: 496443917}
   - component: {fileID: 496443916}
+  - component: {fileID: 496443919}
   m_Layer: 0
   m_Name: MainStartButton
   m_TagString: Untagged
@@ -1624,19 +1625,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 496443917}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1438895777}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: Starting
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &496443917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1675,6 +1664,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 496443914}
   m_CullTransparentMesh: 1
+--- !u!114 &496443919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496443914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1438895777}
+          m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+          m_MethodName: Starting
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &578601510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5907,6 +5925,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2181614579556609395, guid: 6321611e205143a4ea6af7f1f220a4c1, type: 3}
+      propertyPath: _cam
+      value: 
+      objectReference: {fileID: 1912864067150152400}
+    - target: {fileID: 2181614579556609395, guid: 6321611e205143a4ea6af7f1f220a4c1, type: 3}
       propertyPath: _winAudio
       value: 
       objectReference: {fileID: 1178039539}
@@ -5919,6 +5941,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 752188358}
     - target: {fileID: 2181614579556609395, guid: 6321611e205143a4ea6af7f1f220a4c1, type: 3}
+      propertyPath: _slideSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181614579556609395, guid: 6321611e205143a4ea6af7f1f220a4c1, type: 3}
       propertyPath: _loseGameScreen
       value: 
       objectReference: {fileID: 1984580659}
@@ -5926,6 +5952,10 @@ PrefabInstance:
       propertyPath: _mainStartScreen
       value: 
       objectReference: {fileID: 1205989825}
+    - target: {fileID: 2181614579556609395, guid: 6321611e205143a4ea6af7f1f220a4c1, type: 3}
+      propertyPath: _slideSmoothness
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2181614579556609395, guid: 6321611e205143a4ea6af7f1f220a4c1, type: 3}
       propertyPath: _tapToStartScreen
       value: 
@@ -5944,6 +5974,11 @@ PrefabInstance:
       objectReference: {fileID: 7034832969491194754, guid: 0ee692ca6b39ed74990fddf56950f1ee, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6321611e205143a4ea6af7f1f220a4c1, type: 3}
+--- !u!20 &1912864067150152400 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2181614580508238070, guid: 6321611e205143a4ea6af7f1f220a4c1, type: 3}
+  m_PrefabInstance: {fileID: 346070584865169976}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2253830839369378141
 PrefabInstance:
   m_ObjectHideFlags: 0

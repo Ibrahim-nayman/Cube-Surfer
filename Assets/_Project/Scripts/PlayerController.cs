@@ -1,31 +1,34 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private int _runSpeed = 0;
+    [Header("Player")] 
+    [SerializeField] private float _runSpeed;
     [SerializeField] private float _slideSpeed;
-    [SerializeField] private float _maxSlideAmount;
     [SerializeField] private float _slideSmoothness;
+    [SerializeField] private float _maxSlideAmount;
     [SerializeField] private Transform _playerVisual;
+    [SerializeField] private Animator _animator;
+    [SerializeField] private Camera _cam;
+
+    private float _mousePositionX;
+    private float _playerVisualPositionX;
 
     [SerializeField] private GameObject _tapToStartScreen;
     [SerializeField] private GameObject _loseGameScreen;
     [SerializeField] private GameObject _winRestartScreen;
     [SerializeField] private GameObject _mainStartScreen;
-
-    [SerializeField] private Animator _animator;
+    
 
     [SerializeField] private GameObject _loseAudio;
     [SerializeField] private GameObject _winAudio;
     [SerializeField] private GameObject _mainAudio;
 
     private Rigidbody _rigidbody;
-
-    private float _playerVisualPositionX;
-    private float _mousePositionX;
-
-
+    private bool _isPlayerInteract;
+    
     private void Update()
     {
         #region GameState
@@ -87,24 +90,27 @@ public class PlayerController : MonoBehaviour
 
     private void SwerveMovement()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!_isPlayerInteract)
         {
-            _playerVisualPositionX = _playerVisual.localPosition.x;
-            _mousePositionX = Input.mousePosition.x;
-        }
+            if (Input.GetMouseButtonDown(0))
+            {
+                _playerVisualPositionX = _playerVisual.localPosition.x;
+                _mousePositionX = _cam.ScreenToViewportPoint(Input.mousePosition).x;
+            }
 
-        if (Input.GetMouseButton(0))
-        {
-            float currentMousePositionX = Input.mousePosition.x;
-            float distance = currentMousePositionX - _mousePositionX;
-            float positionX = _playerVisualPositionX + (distance * _slideSpeed);
-            Vector3 position = _playerVisual.localPosition;
-            position.x = Mathf.Clamp(positionX, -_maxSlideAmount, _maxSlideAmount);
-            _playerVisual.localPosition = Vector3.Lerp(_playerVisual.localPosition, position, _slideSmoothness * Time.deltaTime);
-        }
-        else
-        {
-            Vector3 pos = _playerVisual.localPosition;
+            if (Input.GetMouseButton(0))
+            {
+                float currentMousePositionX = _cam.ScreenToViewportPoint(Input.mousePosition).x;
+                float distance = currentMousePositionX - _mousePositionX;
+                float positionX = _playerVisualPositionX + (distance * _slideSpeed);
+                Vector3 position = _playerVisual.localPosition;
+                position.x = Mathf.Clamp(positionX, -_maxSlideAmount, _maxSlideAmount);
+                _playerVisual.localPosition = Vector3.Lerp(_playerVisual.localPosition, position, _slideSmoothness * Time.deltaTime);
+            }
+            else
+            {
+                Vector3 pos = _playerVisual.localPosition;
+            }
         }
     }
 
