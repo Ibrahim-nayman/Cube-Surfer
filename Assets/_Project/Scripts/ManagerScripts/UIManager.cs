@@ -14,7 +14,22 @@ public class UIManager : MonoBehaviour
 
     public void NextGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("SampleScene 1");
+        ScoreCounter.scoreValue = 0;
+    }
+    public void NextGame2()
+    {
+        SceneManager.LoadScene("SampleScene 2");
+        ScoreCounter.scoreValue = 0;
+    }
+    public void Retry1()
+    {
+        SceneManager.LoadScene("SampleScene 1");
+        ScoreCounter.scoreValue = 0;
+    }
+    public void Retry2()
+    {
+        SceneManager.LoadScene("SampleScene 2");
         ScoreCounter.scoreValue = 0;
     }
 
